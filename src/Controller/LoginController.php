@@ -1,21 +1,23 @@
 <?php
 
+namespace Controller;
+
 require_once(__DIR__."/../utils/RenderView.php");
 
 use \Utils\RenderView;
 
-class HomeController extends RenderView{
+class LoginController extends RenderView {
 
     public function index()
     {
-        $this->renderView('home', [
+        $this->renderView('login/', 'login', [
             'title' => 'HomePage',
             'user' => 'Gustavo César'
         ]);
     }
 
-    public function show($id)
-    {
-        echo "USER: $id[0]";
+    public function show($args){
+
+        var_dump($args);    
     }
 }

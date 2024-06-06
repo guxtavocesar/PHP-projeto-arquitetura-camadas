@@ -6,13 +6,14 @@ class RenderView{
 
     /*
      * Método renderizador de view
+     * @param string $path Caminho pages dentro da View
      * @param string $view Nome da view para ser renderizada
      * @param array $args Array associativo com os argumentos que serão usados na view
      */
-    public function renderView($view, $args)
+    public function renderView($path, $view, $args)
     {
         extract($args);
 
-        require_once(__DIR__."/../VIEW/Home/$view.php");
+        require_once(__DIR__."/../View/pages/{$path}{$view}.php");
     }
 }
