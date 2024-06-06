@@ -2,6 +2,8 @@
 
 namespace Core\Core;
 
+use Controller;
+
 class Core
 {
     public function run($routes)
@@ -28,7 +30,9 @@ class Core
 
                 require_once(__DIR__."/../Controller/$currentController.php");
 
-                $newController = new $currentController();
+                $className = "\Controller\\" . $currentController;
+
+                $newController = new $className();
                 $newController->$action($matches);
             }
         }
@@ -36,7 +40,7 @@ class Core
         if(!$routerFound){
 
             require_once(__DIR__."/../Controller/NotFoundController.php");
-            $controller = new \NotFoundController();
+            $controller = new \Controller\NotFoundController();
             $controller->index();
         }
     }
