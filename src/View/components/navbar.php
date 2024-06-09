@@ -6,8 +6,8 @@
       </svg>
 
       <div class="d-flex align-items-baseline">
-        <a class="navbar-title link-offset-2 link-underline link-underline-opacity-0 fs-2 mx-2" href="#">CoffeeManager</a>
-        <span class="navbar-title fs-6">Seu gerenciador de café</span>
+        <a class="logo-title link-offset-2 link-underline link-underline-opacity-0 fs-2 mx-2" href="#">CoffeeManager</a>
+        <span class="logo-title fs-6">Seu gerenciador de café</span>
       </div> 
     </div>
   </div>

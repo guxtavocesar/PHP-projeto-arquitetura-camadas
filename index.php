@@ -7,7 +7,7 @@ define('HOST', 'http://'.$_SERVER['HTTP_HOST'].'/hub/PHP-projeto-arquitetura-cam
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT'].'/hub/PHP-projeto-arquitetura-camadas');
 
-include_once(__DIR__."/src/VIEW/layout/head.php"); 
+include_once(__DIR__."/src/View/layout/head.php"); 
 
 ?>
 

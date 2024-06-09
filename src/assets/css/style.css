@@ -5,6 +5,11 @@
     --second-color: #D9A689;
     --third-color: #FFFFFF;
 
+    --primary-color-opacity: #744642;
+
+    --input-color: #8C5042;
+    --button-primary-color: #8C5042;
+
     --title-font: "Lily Script One", system-ui;
 }
 
@@ -22,8 +27,32 @@ body{
     background-color: var(--primary-color)!important;
 }
 
-.navbar-title{
+.logo-title{
     font-family: var(--title-font);
-    color: #FFFFFF;
+    color: var(--third-color);
     font-size: 1.5rem;
+}
+
+.title{
+    color: var(--third-color);
+}
+
+.input-primary{
+    background-color: var(--input-color)!important;
+    color: var(--third-color)!important;
+}
+
+.button-primary-system{
+    background-color: var(--button-primary-color);
+    color: var(--third-color);
+}
+
+.button-primary-system:hover, .button-primary-system:focus{
+
+    background-color: var(--primary-color-opacity);
+    transition: 500ms;
+}
+
+.button-primary-system:active{
+    background-color: var(--button-primary-color)!important;
 }
