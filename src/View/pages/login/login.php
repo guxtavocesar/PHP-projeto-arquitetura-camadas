@@ -1,4 +1,4 @@
-<div class="container d-flex flex-direction-row justify-content-center">
+<div class="container d-flex flex-direction-row justify-content-center align-items-center">
 
     <div class="rounded-3 p-5 mt-4 w-50" style="background-color: var(--primary-color);">
 
@@ -36,3 +36,7 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+
+</script>
