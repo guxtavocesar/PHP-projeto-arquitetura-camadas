@@ -15,7 +15,7 @@ include_once(__DIR__."/src/View/layout/head.php");
 
 <?php
 
-include_once(ROOT."/src/VIEW/components/navbar.php");
+include_once(ROOT."/src/View/components/navbar.php");
 
 require_once(ROOT.'/src/routes/routes.php');
 require_once(ROOT.'/src/Core/Core.php');
