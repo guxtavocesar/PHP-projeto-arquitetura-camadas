@@ -1,4 +1,8 @@
+/* Definindo dependências e imports referentes ao estilo do sistema*/
+
 @import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
+
+/* Definindo as váriaveis de estilo */
 
 :root{
     --primary-color: #592C28;
@@ -13,6 +17,8 @@
     --title-font: "Lily Script One", system-ui;
 }
 
+/* Normalização da página */
+
 * {
     padding: 0;
     margin: 0;
@@ -23,9 +29,13 @@ body{
     background-color: var(--second-color)!important;
 }
 
+/* Estilos referentes a navbar padrão do sistema */
+
 .navbar{
     background-color: var(--primary-color)!important;
 }
+
+/* Estilos referentes as fontes personalizadas do sistema */
 
 .logo-title{
     font-family: var(--title-font);
@@ -37,10 +47,18 @@ body{
     color: var(--third-color);
 }
 
+.font-style-primary{
+    color: var(--third-color);
+}
+
+/* Estilos referentes aos inputs personalizados do sistema */
+
 .input-primary{
     background-color: var(--input-color)!important;
     color: var(--third-color)!important;
 }
+
+/* Estilos referentes aos botões personalizados do sistema*/
 
 .button-primary-system{
     background-color: var(--button-primary-color);
@@ -55,4 +73,20 @@ body{
 
 .button-primary-system:active{
     background-color: var(--button-primary-color)!important;
+}
+
+/* Estilos referentes aos icones do sistema */
+
+.icon-logo{
+    cursor: pointer;
+}
+
+.icon-logo:hover path {
+    stroke: var(--second-color);
+    transition: 500ms;
+}
+
+.fill:hover path {
+    fill: var(--second-color);
+    transition: 500ms;
 }

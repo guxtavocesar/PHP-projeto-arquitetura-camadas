@@ -15,25 +15,25 @@ include_once(__DIR__."/src/View/layout/head.php");
 
 <?php
 
-include_once(ROOT."/src/View/components/navbar.php");
+    include_once(ROOT."/src/View/components/navbar.php");
 
-require_once(ROOT.'/src/routes/routes.php');
-require_once(ROOT.'/src/Core/Core.php');
+    require_once(ROOT.'/src/routes/routes.php');
+    require_once(ROOT.'/src/Core/Core.php');
 
-use Core\Core;
+    use Core\Core;
 
-spl_autoload_register(function ($file){
+    spl_autoload_register(function ($file){
 
-    if(file_exists(ROOT."/utils/$file.php")){
-        require_once(ROOT."/utils/$file.php");
-    }
-    else if(file_exists(ROOT."/models/$file.php")){
-        require_once(ROOT."/models/$file.php");
-    }
-});
+        if(file_exists(ROOT."/utils/$file.php")){
+            require_once(ROOT."/utils/$file.php");
+        }
+        else if(file_exists(ROOT."/models/$file.php")){
+            require_once(ROOT."/models/$file.php");
+        }
+    });
 
-$core = new Core\Core();
-$core->run($routes);
+    $core = new Core\Core();
+    $core->run($routes);
 
 ?>
 
