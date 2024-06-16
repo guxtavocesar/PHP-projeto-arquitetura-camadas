@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<?php include_once(ROOT."/src/View/layout/head.php");  ?>
+
+<body>
+
+<?php include_once(ROOT."/src/View/components/navbar.php"); ?>
+
 <div class="container d-flex flex-direction-row justify-content-center align-items-center">
 
     <div class="rounded-3 p-5 mt-4 w-50" style="background-color: var(--primary-color);">
@@ -37,3 +46,6 @@
         </div>
     </div>
 </div>
+
+</body>
+</html>

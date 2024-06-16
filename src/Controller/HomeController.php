@@ -12,4 +12,10 @@ class HomeController extends RenderView{
     {
         $this->renderView('home/', 'home', []);
     }
+
+    public function helloHttp()
+    {
+        header('Content-Type: application/json');
+        echo json_encode(['message' => 'Hello PHP!!']);
+    }
 }

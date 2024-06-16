@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<?php include_once(ROOT."/src/View/layout/head.php");  ?>
+
+<body>
+
+<?php include_once(ROOT."/src/View/components/navbar.php"); ?>
+
 <div class="d-flex flex-direction-column">
 
     <!-- Menu de utilitários -->
@@ -14,3 +23,19 @@
         <?php include_once (ROOT . '/src/View/components/info-mesa.php') ?>
     </div>
 </div>
+</body>
+
+<script>
+
+async function hello(){
+
+    const response = await fetch('<?php echo HOST ?>/home/hello');
+
+    const data = await response.json();
+    console.log(data.message);
+}
+
+hello();
+
+</script>
+</html>
