@@ -90,3 +90,16 @@ body{
     fill: var(--second-color);
     transition: 500ms;
 }
+
+/* Estilos referentes as tabelas do sistema */
+
+.tabela{
+    color: var(--third-color);
+}
+
+.tabela tbody tr:nth-of-type(odd) {
+    background-color: var(--primary-color);
+}
+.tabela tbody tr:nth-of-type(even) {
+    background-color: var(--input-color);
+}

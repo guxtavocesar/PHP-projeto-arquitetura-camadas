@@ -8,16 +8,11 @@ use \Utils\RenderView;
 
 class LoginController extends RenderView {
 
-    public function index()
+    public function index($args)
     {
         $this->renderView('login/', 'login', [
             'title' => 'HomePage',
             'user' => 'Gustavo César'
         ]);
-    }
-
-    public function show($args){
-
-        var_dump($args);    
     }
 }

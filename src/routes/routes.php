@@ -1,10 +1,15 @@
 <?php
 
 $routes = [
-    '/' => 'LoginController@index',
+
+    '/' => 'MesaController@index',
+
     '/login' => 'LoginController@index',
-    '/user/{id}' => 'LoginController@show',
     
-    '/home' => 'HomeController@index',
-    '/home/hello' => 'HomeController@helloHttp'
+    # Rotas referentes à mesa
+    '/mesa' => 'MesaController@index',
+    '/mesa/detalhes' => 'MesaController@index',
+    '/mesa/detalhes/{id}' => 'MesaController@loadViewInfoMesa',
+
+    '/mesa/hello' => 'MesaController@helloHttp'
 ];
