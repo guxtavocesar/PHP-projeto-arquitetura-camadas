@@ -11,5 +11,10 @@ $routes = [
     '/mesa/detalhes' => 'MesaController@index',
     '/mesa/detalhes/{id}' => 'MesaController@loadViewInfoMesa',
 
-    '/mesa/hello' => 'MesaController@helloHttp'
+    '/mesa/hello' => 'MesaController@helloHttp',
+
+    # Rotas referente ao cardapio
+    '/cardapio' => 'CardapioController@index',
+    '/cardapio/cardapio_info' => 'CardapioController@index',
+    '/cardapio/cardapio_info/{categoria}' => 'CardapioController@loadInfoCardapio',
 ];

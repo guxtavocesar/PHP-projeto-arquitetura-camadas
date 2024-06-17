@@ -103,3 +103,18 @@ body{
 .tabela tbody tr:nth-of-type(even) {
     background-color: var(--input-color);
 }
+
+/* Estilo referentes aos cardapios do sistema*/
+
+.cardapio {
+    background-color: var(--input-color);
+    width: 18rem;
+    margin: 0 50px 10px;
+}
+
+.cardapio.card:hover {
+    -webkit-box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px -7px rgba(0,0,0,0.75);
+    transition: 300ms;
+}
