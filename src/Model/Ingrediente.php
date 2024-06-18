@@ -1,13 +1,14 @@
 <?php
 
-namespace Model\Ingrediente;
+namespace Model;
 
 class Ingrediente{
 
-    private ?int $id;
+    private int $id;
     private ?string $descricao;
     private ?string $marca;
-    private ?int $idFornecedor;
+    private int $idFornecedor;
+    private string $fornecedor;
     private ?float $valorCusto;
     private ?int $estoqueAtual;
     private ?int $estoqueMaximo;
@@ -37,7 +38,7 @@ class Ingrediente{
         return $this->marca;
     }
 
-    public function setMarca(int $marca)
+    public function setMarca(string $marca)
     {
         $this->marca = $marca;
     }
@@ -50,6 +51,16 @@ class Ingrediente{
     public function setIdFornecedor(int $idFornecedor)
     {
         $this->idFornecedor = $idFornecedor;
+    }
+
+    public function getFornecedor()
+    {
+        return $this->fornecedor;
+    }
+
+    public function setFornecedor(string $fornecedor)
+    {
+        $this->fornecedor = $fornecedor;
     }
 
     public function getValorCusto()

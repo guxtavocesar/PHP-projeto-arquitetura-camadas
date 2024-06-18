@@ -42,7 +42,6 @@ if(isset($_POST['cpf']) && isset($_POST['senha'])){
 
 ?>
 
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -54,7 +53,7 @@ if(isset($_POST['cpf']) && isset($_POST['senha'])){
 <form method="POST">
 <div class="container d-flex flex-direction-row justify-content-center align-items-center">
 
-    <div class="rounded-3 p-5 mt-4 w-50" style="background-color: var(--primary-color);">
+    <div class="rounded-3 p-5 mt-4 w-50" style="background-color: var(--primary-color); height: 60vh;">
 
         <div class="d-flex flex-direction-row justify-content-center">
             <h3 class="fs-2 mb-4 mx-2 logo-title">Login</h3>

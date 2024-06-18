@@ -45,7 +45,7 @@ ValidaAcesso::validarAcesso();
         </div>
         </div>
 
-        <div class="detalhes-mesa justify-content-center rounded-bottom-4" style="background-color: var(--primary-color); min-height: 69vh">
+        <div class="detalhes-mesa justify-content-center rounded-bottom-4" style="background-color: var(--primary-color); min-height: 75vh">
 
         <div class="p-4 d-flex flex-direction-row justify-content-between">
             <table class="tabela w-100">

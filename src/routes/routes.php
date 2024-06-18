@@ -16,4 +16,8 @@ $routes = [
     # Rotas referentes ao cardapio
     '/cardapio' => 'CardapioController@index',
     '/cardapio/{id}' => 'CardapioController@loadInfoCardapio',
+
+    # Rotas referentes ao estoque
+    '/estoque' => 'EstoqueController@index',
+    '/estoque/incluir' => 'EstoqueController@loadEstoqueIncluir',
 ];

@@ -1,6 +1,6 @@
 <?php
 
-namespace Model\Mesa;
+namespace Model;
 
 class Mesa{
 
