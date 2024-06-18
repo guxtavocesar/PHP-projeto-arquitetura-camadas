@@ -32,7 +32,12 @@ ValidaAcesso::validarAcesso();
                 style="background-color: var(--primary-color); min-height: 85vh">
 
                 <div class="p-4 d-flex flex-column justify-content-between">
-                    <h3 class="title my-4 fw-bold text-center">Estoque de ingredientes</h3>
+
+                <div class="d-flex flex-direction-row justify-content-between align-items-center">
+                    <h3 class="title ms-2 my-4 fw-bold text-center">Estoque de ingredientes</h3>
+                    <a class="btn btn-primary button-primary-system border-0" href="<?php echo HOST ?>/estoque/incluir" role="button">Adicionar ingrediente</a>
+                </div>
+                    
                     <table class="tabela w-100">
                         <thead>
                             <tr>
@@ -41,8 +46,8 @@ ValidaAcesso::validarAcesso();
                                 <th class="p-3" scope="col">Marca</th>
                                 <th class="p-3" scope="col">Fornecedor</th>
                                 <th class="p-3" scope="col">Custo</th>
-                                <th class="p-3" scope="col">Estq Atual</th>
-                                <th class="p-3" scope="col">Estq Max</th>
+                                <th class="p-3" scope="col">Estoque Atual</th>
+                                <th class="p-3" scope="col">Estoque Max</th>
                                 <th class="p-3" scope="col"></th>
                             </tr>
                         </thead>

@@ -6,6 +6,8 @@ require_once(__DIR__."/../utils/RenderView.php");
 require_once(__DIR__."/../BLL/Fornecedor.php");
 require_once(__DIR__."/../BLL/Ingrediente.php");
 
+require_once(__DIR__."/../MODEL/Ingrediente.php");
+
 use \Utils\RenderView;
 
 class EstoqueController extends RenderView{
@@ -30,5 +32,20 @@ class EstoqueController extends RenderView{
         );
 
         $this->renderView('estoque/', 'estoque_incluir', $params);
+    }
+
+    public function loadEstoqueEditar($args)
+    {
+
+        $bllIngrediente = new \BLL\Ingrediente();
+
+        $fornecedor = new \BLL\Fornecedor();
+
+        $params = array(
+            'ingrediente'  => $bllIngrediente->selectBy($args[0]),
+            'fornecedores' => $fornecedor->selectAll()
+        );
+
+        $this->renderView('estoque/', 'estoque_editar', $params);
     }
 }

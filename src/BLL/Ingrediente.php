@@ -18,4 +18,17 @@ class Ingrediente{
         $dalIngrediente = new \DAL\Ingrediente();
         return $dalIngrediente->selectAll();
     }
+
+    public function selectBy($id)
+    {
+        $dalIngrediente = new \DAL\Ingrediente();
+        return $dalIngrediente->selectBy($id);
+    }
+
+    public function update(\MODEL\Ingrediente $ingrediente)
+    {
+        $dalIngrediente = new \DAL\Ingrediente();
+        return $dalIngrediente->update($ingrediente);
+    }
+
 }

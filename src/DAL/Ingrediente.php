@@ -42,7 +42,7 @@ class Ingrediente{
 
             $ingrediente = new \MODEL\Ingrediente();
 
-            $ingrediente->setId( $row['IdIngrediente']);
+            $ingrediente->setId($row['IdIngrediente']);
             $ingrediente->setDescricao($row['Descricao']);
             $ingrediente->setMarca($row['Marca']);
             $ingrediente->setValorCusto($row['ValorCusto']);
@@ -54,5 +54,59 @@ class Ingrediente{
         }
 
         return $listaIngrediente;
+    }
+
+    public function selectBy($id)
+    {
+        $sql = 'SELECT * FROM ingrediente WHERE IdIngrediente = ?';
+
+        $con = \DAL\Conexao\Conexao::conectar();
+        $query = $con->prepare($sql);
+
+        $query->execute(array($id));
+        $result = $query->fetch(\PDO::FETCH_ASSOC);
+
+        $con = \DAL\Conexao\Conexao::desconectar();
+
+        $ingrediente = new \MODEL\Ingrediente();
+
+        $ingrediente->setId($result['IdIngrediente']);
+        $ingrediente->setDescricao($result['Descricao']);
+        $ingrediente->setMarca($result['Marca']);
+        $ingrediente->setValorCusto($result['ValorCusto']);
+        $ingrediente->setEstoqueAtual($result['EstoqueAtual']);
+        $ingrediente->setEstoqueMaximo($result['EstoqueMaximo']);
+        $ingrediente->setIdFornecedor($result['IdFornecedor']);
+
+        return $ingrediente;
+    }
+
+    public function update(\MODEL\Ingrediente $ingrediente){
+
+        $sql = 'UPDATE ingrediente 
+                SET Descricao = ?, 
+                    Marca = ?, 
+                    ValorCusto = ?, 
+                    EstoqueAtual = ?, 
+                    EstoqueMaximo = ?, 
+                    IdFornecedor = ?
+                WHERE IdIngrediente = ?';
+
+        $con = \DAL\Conexao\Conexao::conectar();
+        $query = $con->prepare($sql);
+
+        $result = $query->execute(array(
+            $ingrediente->getDescricao(), 
+            $ingrediente->getMarca(),
+            $ingrediente->getValorCusto(),
+            $ingrediente->getEstoqueAtual(),
+            $ingrediente->getEstoqueMaximo(),
+            $ingrediente->getIdFornecedor(),
+            $ingrediente->getId()
+        ));
+
+        $con = \DAL\Conexao\Conexao::desconectar();
+
+        return $result;
     }
 }
