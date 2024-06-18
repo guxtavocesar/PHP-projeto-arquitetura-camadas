@@ -1,6 +1,6 @@
 <?php
 
-namespace DALL\Funcionario;
+namespace DAL\Funcionario;
 
 class Funcionario{
 

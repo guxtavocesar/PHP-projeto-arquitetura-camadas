@@ -1,6 +1,6 @@
 <?php
 
-namespace DALL\Cardapio;
+namespace DAL\Cardapio;
 
 class Categoria{
 

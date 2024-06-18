@@ -1,6 +1,6 @@
 <?php
 
-namespace BLL\Venda;
+namespace BLL;
 
 class Venda{
 

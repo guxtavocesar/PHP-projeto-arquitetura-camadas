@@ -1,6 +1,6 @@
 <?php
 
-namespace BLL\Fornecedor;
+namespace BLL;
 
 class Fornecedor{
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace DALL\Mesa;
+namespace DAL;
 
 class Mesa{
 

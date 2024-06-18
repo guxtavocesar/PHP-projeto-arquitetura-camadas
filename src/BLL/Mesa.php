@@ -1,6 +1,6 @@
 <?php
 
-namespace BLL\Mesa;
+namespace BLL;
 
 class Mesa{
 

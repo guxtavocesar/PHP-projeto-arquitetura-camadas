@@ -1,3 +1,15 @@
+<?php
+
+session_start();
+
+require_once(ROOT.'/src/utils/ValidaAcesso.php');
+
+use Utils\ValidaAcesso;
+
+ValidaAcesso::validarAcesso();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>

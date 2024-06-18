@@ -8,6 +8,7 @@ class Funcionario{
     private ?string $nome;
     private ?string $dataNascimento;
     private ?string $cpf;
+    private ?string $senha;
     private ?int $idTipoFuncionario;
 
     public function getId(){
@@ -40,6 +41,14 @@ class Funcionario{
 
     public function setCpf(string $cpf){
         $this->cpf = $cpf;
+    }
+
+    public function getSenha(){
+        return $this->senha;
+    }
+
+    public function setSenha(string $senha){
+        $this->senha = $senha;
     }
 
     public function getIdTipoFuncionario(){

@@ -1,6 +1,6 @@
 <?php
 
-namespace DALL\Ingrediente;
+namespace DAL;
 
 class Ingrediente{
 

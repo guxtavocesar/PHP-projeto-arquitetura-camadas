@@ -1,6 +1,6 @@
 <?php
 
-namespace DALL\Fornecedor;
+namespace DAL;
 
 class Fornecedor{
 

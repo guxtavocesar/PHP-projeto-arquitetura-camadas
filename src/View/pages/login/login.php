@@ -1,3 +1,48 @@
+<?php
+
+session_start();
+session_destroy();
+
+require_once(ROOT.'/src/DAL/Conexao/Conexao.php');
+
+use DAL\Conexao\Conexao;
+
+if(isset($_POST['cpf']) && isset($_POST['senha'])){
+
+    $cpfUsuario   = trim($_POST['cpf']);
+    $senhaUsuario = md5(trim($_POST['senha'])); 
+
+    $sql = 'SELECT * FROM funcionario WHERE CPF=? AND Senha =?';
+    $con = DAL\Conexao\Conexao::conectar();
+
+    $query = $con->prepare($sql);
+
+    try{
+
+        $query->execute(array($cpfUsuario, $senhaUsuario));
+        $result = $query->rowCount();
+
+        if($result == 1){
+
+            session_start();
+
+            $_SESSION['user'] = $query->fetch(\PDO::FETCH_ASSOC);
+
+            header('location: '.HOST.'/mesa');
+        }
+        else{
+
+            $notFound = true;
+        }
+    }
+    catch(Exception $e){    
+        die($e->getMessage());
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -6,7 +51,7 @@
 <body>
 
 <?php include_once(ROOT."/src/View/components/navbar.php"); ?>
-
+<form method="POST">
 <div class="container d-flex flex-direction-row justify-content-center align-items-center">
 
     <div class="rounded-3 p-5 mt-4 w-50" style="background-color: var(--primary-color);">
@@ -18,34 +63,36 @@
             </svg>
         </div>
 
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label title fw-semibold">Informe o CPF</label>
-            <input type="text" class="form-control input-primary border-0" id="exampleFormControlInput1" maxlength="11">
+        <?php if(isset($notFound) && $notFound){ ?>
+
+        <div class="alert alert-warning" role="alert">
+            <span class="fw-medium">CPF ou senha inválidos. Tente efetuar o login novamente</span>
         </div>
 
+        <?php } ?>
+
         <div class="mb-3">
-            <label for="inputPassword" class="form-label title fw-semibold">Informe a SENHA</label>
-            <input type="password" class="form-control input-primary border-0" id="inputPassword" class="form-control"
+            <label for="cpf" class="form-label title fw-semibold">Informe o CPF</label>
+            <input type="text" class="form-control input-primary border-0" id="cpf" name="cpf" maxlength="11">
+        </div>
+
+        <div class="mb-3 mb-5">
+            <label for="senha" class="form-label title fw-semibold">Informe a SENHA</label>
+            <input type="password" class="form-control input-primary border-0" id="senha" name="senha" class="form-control"
                 aria-describedby="passwordHelpBlock" style="">
         </div>
 
-        <div class="d-grid gap-4 mx-auto my-5">
-            <button type="button" class="btn btn-primary button-primary-system fw-semibold btn-lg border border-0">
+        <div class="d-grid gap-4 mx-auto">
+            <button type="submit" class="btn btn-primary button-primary-system fw-semibold btn-lg border border-0">
                 Entrar
                 <svg width="20" height="20" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M22.1146 6.11466C22.6147 5.61473 23.2928 5.33389 23.9999 5.33389C24.707 5.33389 25.3852 5.61473 25.8853 6.11466L37.8853 18.1147C38.3852 18.6147 38.666 19.2929 38.666 20C38.666 20.7071 38.3852 21.3853 37.8853 21.8853L25.8853 33.8853C25.3823 34.3711 24.7087 34.6399 24.0095 34.6338C23.3103 34.6277 22.6415 34.3473 22.1471 33.8528C21.6526 33.3584 21.3722 32.6896 21.3661 31.9904C21.36 31.2912 21.6288 30.6176 22.1146 30.1147L29.3333 22.6667H3.99992C3.29267 22.6667 2.6144 22.3857 2.1143 21.8856C1.6142 21.3855 1.33325 20.7072 1.33325 20C1.33325 19.2927 1.6142 18.6145 2.1143 18.1144C2.6144 17.6143 3.29267 17.3333 3.99992 17.3333H29.3333L22.1146 9.88532C21.6147 9.38525 21.3338 8.70709 21.3338 7.99999C21.3338 7.29289 21.6147 6.61473 22.1146 6.11466Z" fill="#F2E8DF" />
                 </svg>
             </button>
-
-            <button type="button" class="btn btn-secondary button-primary-system fw-semibold btn-lg border border-0">
-                Criar conta
-                <svg width="25" height="25" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M37.4999 20.8333H29.1666V12.5C29.1666 11.3949 28.7276 10.3351 27.9462 9.5537C27.1648 8.7723 26.105 8.33331 24.9999 8.33331C23.8948 8.33331 22.835 8.7723 22.0536 9.5537C21.2722 10.3351 20.8333 11.3949 20.8333 12.5L20.9812 20.8333H12.4999C11.3948 20.8333 10.335 21.2723 9.55364 22.0537C8.77224 22.8351 8.33325 23.8949 8.33325 25C8.33325 26.105 8.77224 27.1649 9.55364 27.9463C10.335 28.7277 11.3948 29.1666 12.4999 29.1666L20.9812 29.0187L20.8333 37.5C20.8333 38.605 21.2722 39.6649 22.0536 40.4463C22.835 41.2277 23.8948 41.6666 24.9999 41.6666C26.105 41.6666 27.1648 41.2277 27.9462 40.4463C28.7276 39.6649 29.1666 38.605 29.1666 37.5V29.0187L37.4999 29.1666C38.605 29.1666 39.6648 28.7277 40.4462 27.9463C41.2276 27.1649 41.6666 26.105 41.6666 25C41.6666 23.8949 41.2276 22.8351 40.4462 22.0537C39.6648 21.2723 38.605 20.8333 37.4999 20.8333Z" fill="#F2E8DF" />
-                </svg>
-            </button>
         </div>
     </div>
 </div>
+</form>
 
 </body>
 </html>

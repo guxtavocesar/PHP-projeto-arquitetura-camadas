@@ -2,10 +2,10 @@
 -- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Tempo de geração: 12/06/2024 às 02:55
--- Versão do servidor: 10.4.32-MariaDB
--- Versão do PHP: 8.2.12
+-- Host: 127.0.0.1
+-- Tempo de geração: 18/06/2024 às 02:20
+-- Versão do servidor: 10.4.28-MariaDB
+-- Versão do PHP: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Banco de dados: `Cafeteria`
+-- Banco de dados: `cafeteria`
 --
 
 -- --------------------------------------------------------
@@ -80,8 +80,16 @@ CREATE TABLE `funcionario` (
   `Nome` varchar(100) NOT NULL,
   `Nascimento` date NOT NULL,
   `CPF` varchar(11) NOT NULL,
+  `Senha` varchar(150) NOT NULL,
   `IdTipoFuncionario` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `funcionario`
+--
+
+INSERT INTO `funcionario` (`IdFuncionario`, `Nome`, `Nascimento`, `CPF`, `Senha`, `IdTipoFuncionario`) VALUES
+(1, 'Gustavo Cesar', '2024-12-03', '50155054856', 'e10adc3949ba59abbe56e057f20f883e', 1);
 
 -- --------------------------------------------------------
 
@@ -121,13 +129,20 @@ CREATE TABLE `tipo_funcionario` (
   `Descricao` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Despejando dados para a tabela `tipo_funcionario`
+--
+
+INSERT INTO `tipo_funcionario` (`IdTipoFuncionario`, `Descricao`) VALUES
+(1, 'Atendente');
+
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `Venda`
+-- Estrutura para tabela `venda`
 --
 
-CREATE TABLE `Venda` (
+CREATE TABLE `venda` (
   `IdVenda` int(11) NOT NULL,
   `Quantidade` int(11) NOT NULL,
   `ValorTotal` float NOT NULL,
@@ -193,9 +208,9 @@ ALTER TABLE `tipo_funcionario`
   ADD PRIMARY KEY (`IdTipoFuncionario`);
 
 --
--- Índices de tabela `Venda`
+-- Índices de tabela `venda`
 --
-ALTER TABLE `Venda`
+ALTER TABLE `venda`
   ADD PRIMARY KEY (`IdVenda`),
   ADD KEY `fk_venda_IdCardapio` (`IdCardapio`),
   ADD KEY `fk_venda_IdFuncionario` (`IdFuncionario`) USING BTREE,
@@ -227,7 +242,7 @@ ALTER TABLE `fornecedor`
 -- AUTO_INCREMENT de tabela `funcionario`
 --
 ALTER TABLE `funcionario`
-  MODIFY `IdFuncionario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdFuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de tabela `ingrediente`
@@ -245,12 +260,12 @@ ALTER TABLE `mesa`
 -- AUTO_INCREMENT de tabela `tipo_funcionario`
 --
 ALTER TABLE `tipo_funcionario`
-  MODIFY `IdTipoFuncionario` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdTipoFuncionario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
--- AUTO_INCREMENT de tabela `Venda`
+-- AUTO_INCREMENT de tabela `venda`
 --
-ALTER TABLE `Venda`
+ALTER TABLE `venda`
   MODIFY `IdVenda` int(11) NOT NULL AUTO_INCREMENT;
 
 --
@@ -283,9 +298,9 @@ ALTER TABLE `ingrediente`
   ADD CONSTRAINT `fk_IdForncedor` FOREIGN KEY (`IdFornecedor`) REFERENCES `fornecedor` (`IdFornecedor`);
 
 --
--- Restrições para tabelas `Venda`
+-- Restrições para tabelas `venda`
 --
-ALTER TABLE `Venda`
+ALTER TABLE `venda`
   ADD CONSTRAINT `fk_IdFuncionario` FOREIGN KEY (`IdFuncionario`) REFERENCES `funcionario` (`IdFuncionario`),
   ADD CONSTRAINT `fk_NumeroMesa` FOREIGN KEY (`NumeroMesa`) REFERENCES `mesa` (`IdMesa`),
   ADD CONSTRAINT `fk_venda_IdCardapio` FOREIGN KEY (`IdCardapio`) REFERENCES `cardapio` (`IdCardapio`);

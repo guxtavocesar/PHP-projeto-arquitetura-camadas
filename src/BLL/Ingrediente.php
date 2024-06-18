@@ -1,6 +1,6 @@
 <?php
 
-namespace BLL\Ingrediente;
+namespace BLL;
 
 class Ingrediente{
 
