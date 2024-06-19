@@ -7,7 +7,8 @@ require_once(ROOT.'/src/Model/Funcionario/Funcionario.php');
 
 class Funcionario {
 
-    public function selectAll() {
+    public function selectAll()
+    {
         $sql = "SELECT * FROM funcionario";
         $con = \DAL\Conexao\Conexao::conectar();
 
@@ -31,8 +32,8 @@ class Funcionario {
         return $listaFuncionarios;
     }
 
-    public function insert(\MODEL\Funcionario\Funcionario $funcionario) {
-
+    public function insert(\MODEL\Funcionario\Funcionario $funcionario)
+    {
         $senha = md5($funcionario->getSenha());
 
         $sql = "INSERT INTO funcionario (Nome, Nascimento, CPF, senha, IdTipoFuncionario)

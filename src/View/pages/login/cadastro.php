@@ -1,28 +1,28 @@
 <?php 
 
 require_once(ROOT.'/src/DAL/Conexao/Conexao.php');
-require_once(ROOT.'/src/DAL/Funcionario/Tipo.php');
-require_once(ROOT.'/src/DAL/Funcionario/Funcionario.php');
+
+require_once(ROOT.'/src/BLL/Funcionario/Tipo.php');
+require_once(ROOT.'/src/BLL/Funcionario/Funcionario.php');
+
 require_once(ROOT.'/src/Model/Funcionario/Funcionario.php');
 
 use DAL\Conexao\Conexao;
-use DAL\Funcionario\Tipo;
-use DAL\Funcionario\Funcionario;
 
-$dalFuncionario = new Funcionario();
-$dalTipo = new Tipo();
+$bllFuncionario = new BLL\Funcionario\Funcionario();
+$bllTipo = new BLL\Funcionario\Tipo();
+
 $cpfFound = false;
 $con = Conexao::conectar();
 
-$listaTipos = $dalTipo->selectAll();
+$listaTipos = $bllTipo->selectAll();
 
-// Verificar o cpf do novo cadastro
 if (isset($_POST['cpf'])) {
 
     $cpfUsuario = trim($_POST['cpf']);
     $con = Conexao::desconectar();
 
-    foreach ($dalFuncionario->selectAll() as $row) {
+    foreach ($bllFuncionario->selectAll() as $row){
 
         if ($row->getCpf() == $cpfUsuario) {
 
@@ -40,7 +40,7 @@ if (isset($_POST['cpf'])) {
         $funcionario->setSenha($_POST["senha"]);
         $funcionario->setIdTipoFuncionario($_POST["idTipo"]);
 
-        $dalFuncionario->insert($funcionario);
+        $bllFuncionario->insert($funcionario);
                     
         header('location: ' .HOST.'/login');
     }
@@ -59,7 +59,7 @@ if (isset($_POST['cpf'])) {
 <form method="POST">
 <div class="container d-flex flex-direction-row justify-content-center align-items-center">
 
-    <div class="rounded-3 p-5 mt-4 w-50" style="background-color: var(--primary-color); height: 83vh;">
+    <div class="rounded-3 p-5 mt-4 w-50" style="background-color: var(--primary-color); min-height: 83vh;">
 
         <div class="d-flex flex-direction-row justify-content-center">
             <h3 class="fs-2 mb-4 mx-2 logo-title">Cadastro Funcionário</h3>
@@ -78,7 +78,7 @@ if (isset($_POST['cpf'])) {
 
         <div class="mb-3">
             <label for="Nome" class="form-label title fw-semibold">Informe seu nome</label>
-            <input type="text" class="form-control input-primary border-0" id="Nome" name="Nome" maxlength="11" required>
+            <input type="text" class="form-control input-primary border-0" id="Nome" name="Nome" required>
         </div>
 
         <div class="mb-3">

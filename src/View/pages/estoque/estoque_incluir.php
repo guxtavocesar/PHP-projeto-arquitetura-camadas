@@ -73,7 +73,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                         <div class="mb-3">
                             <label for="marca" class="form-label title fw-semibold">Marca</label>
-                            <input type="text" class="form-select input-primary border-0" id="marca" name="marca">
+                            <input type="text" class="form-control   input-primary border-0" id="marca" name="marca">
                         </div>
 
                         <div class="mb-3">

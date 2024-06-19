@@ -7,7 +7,8 @@ require_once(ROOT.'/src/Model/Funcionario/Tipo.php');
 
 class Tipo{
 
-    public function selectAll() {
+    public function selectAll()
+    {
         $sql = "SELECT * FROM tipo_funcionario";
 
         $con = \DAL\Conexao\Conexao::conectar();

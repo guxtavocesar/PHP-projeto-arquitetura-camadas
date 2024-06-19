@@ -7,7 +7,7 @@ class Venda{
     private ?string $dataHora;
     private ?int $numeroMesa;
     private ?int $idFuncionario;
-    private ?int $idCardapio;
+    private ?int $idIngrediente;
     private ?int $quantidade;
     private ?float $valorTotal;
 
@@ -35,12 +35,12 @@ class Venda{
         $this->idFuncionario = $idFuncionario;
     }
 
-    public function getIdCardapio(){
-        return $this->idCardapio;
+    public function getIdIngrediente(){
+        return $this->idIngrediente;
     }
 
-    public function setIdCardapio(int $idCardapio){
-        $this->idCardapio = $idCardapio;
+    public function setIdIngrediente(int $idIngrediente){
+        $this->idIngrediente = $idIngrediente;
     }
 
     public function getQuantidade(){
