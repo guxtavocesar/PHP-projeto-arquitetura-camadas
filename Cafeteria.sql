@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/06/2024 às 01:52
+-- Tempo de geração: 20/06/2024 às 22:17
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -76,6 +76,7 @@ CREATE TABLE `ingrediente` (
   `Descricao` varchar(100) NOT NULL,
   `Marca` varchar(100) NOT NULL,
   `ValorCusto` float NOT NULL,
+  `ValorVenda` float NOT NULL,
   `EstoqueAtual` int(11) NOT NULL,
   `EstoqueMaximo` int(11) NOT NULL,
   `IdFornecedor` int(11) NOT NULL
@@ -85,8 +86,10 @@ CREATE TABLE `ingrediente` (
 -- Despejando dados para a tabela `ingrediente`
 --
 
-INSERT INTO `ingrediente` (`IdIngrediente`, `Descricao`, `Marca`, `ValorCusto`, `EstoqueAtual`, `EstoqueMaximo`, `IdFornecedor`) VALUES
-(1, 'Café expresso', 'Nescafé', 50, 150, 200, 1);
+INSERT INTO `ingrediente` (`IdIngrediente`, `Descricao`, `Marca`, `ValorCusto`, `ValorVenda`, `EstoqueAtual`, `EstoqueMaximo`, `IdFornecedor`) VALUES
+(1, 'Café expresso', 'Nescafé', 99, 250, 150, 200, 1),
+(2, 'Café Capuccino da TV', 'Jaguari', 50, 75, 150, 800, 1),
+(3, 'Chá Matte', 'Leão do Chá', 10, 150, 8, 90, 1);
 
 -- --------------------------------------------------------
 
@@ -98,6 +101,17 @@ CREATE TABLE `mesa` (
   `IdMesa` int(11) NOT NULL,
   `Descricao` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Despejando dados para a tabela `mesa`
+--
+
+INSERT INTO `mesa` (`IdMesa`, `Descricao`) VALUES
+(1, 'Mesa 1'),
+(2, 'Mesa 2'),
+(3, 'Mesa 3'),
+(4, 'Mesa 4'),
+(5, 'Mesa 5');
 
 -- --------------------------------------------------------
 
@@ -125,11 +139,12 @@ INSERT INTO `tipo_funcionario` (`IdTipoFuncionario`, `Descricao`) VALUES
 
 CREATE TABLE `venda` (
   `IdVenda` int(11) NOT NULL,
+  `IdFuncionario` int(11) NOT NULL,
+  `IdIngrediente` int(11) NOT NULL,
+  `NumeroMesa` int(11) NOT NULL,
   `Quantidade` int(11) NOT NULL,
   `ValorTotal` float NOT NULL,
-  `NumeroMesa` int(11) NOT NULL,
-  `IdFuncionario` int(11) NOT NULL,
-  `IdIngrediente` int(11) NOT NULL
+  `Status` enum('FEC','ABE') NOT NULL DEFAULT 'ABE' COMMENT 'FEC = ''Fechado'', ABE = ''Aberto'''
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -197,13 +212,13 @@ ALTER TABLE `funcionario`
 -- AUTO_INCREMENT de tabela `ingrediente`
 --
 ALTER TABLE `ingrediente`
-  MODIFY `IdIngrediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `IdIngrediente` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de tabela `mesa`
 --
 ALTER TABLE `mesa`
-  MODIFY `IdMesa` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `IdMesa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de tabela `tipo_funcionario`
