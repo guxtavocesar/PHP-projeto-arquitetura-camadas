@@ -13,7 +13,8 @@ class MesaController extends RenderView{
         $this->renderView('mesa/', 'buscar_mesa', []);
     }
 
-    public function loadViewInfoMesa($args){
+    public function loadViewInfoMesa($args)
+    {
 
         $params = [
             'numeroMesa' => $args[0]
@@ -22,9 +23,12 @@ class MesaController extends RenderView{
         $this->renderView('mesa/', 'info_mesa', $params);
     }
 
-    public function helloHttp()
+    public function loadViewAddProduto($args)
     {
-        header('Content-Type: application/json');
-        echo json_encode(['message' => 'Hello PHP!!']);
+        $params = [
+            'numeroMesa' => $args[0]
+        ];
+
+        $this->renderView('mesa/', 'adicionar_produto_mesa', $params);
     }
 }

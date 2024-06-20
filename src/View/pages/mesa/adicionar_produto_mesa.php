@@ -27,20 +27,34 @@ ValidaAcesso::validarAcesso();
     <div class="container my-4">
 
     <form method="POST" action="<?php echo HOST ?>/mesa/detalhes">
-        <div class="search d-flex flex-direction-row justify-content-between p-4 rounded-top-4" style="background-color: var(--primary-color);">
-            
-        <div class="d-flex flex-direction-row">
-            <h4 class="title me-4">N° Mesa:</h4>
-            <input name="numeroMesa" id="numeroMesa" value="<?php echo isset($numeroMesa) ? $numeroMesa : '' ?>" class="form-control input-primary border-0 rounded-2 w-50" type="text">
-        </div>
 
-        <div class="d-flex flex-direction-row">
 
-        <a class="btn btn-primary button-primary-system border-0" href="<?php echo HOST ?>/mesa/adicionar/<?php echo $numeroMesa ?>" role="button">Adicionar produto</a> 
-        </div>
-        </div>
+        <div class="detalhes-mesa justify-content-center rounded-4" style="background-color: var(--primary-color); min-height: 85vh;">
 
-        <div class="detalhes-mesa justify-content-center rounded-bottom-4" style="background-color: var(--primary-color); min-height: 75vh">
+        <div class="row px-4 py-5">
+
+            <div class="col-4 d-flex flex-direction-row align-items-center">
+                <h4 class="title me-4">Produto:</h4>
+                <select class="form-select input-primary border-0" id="produto">
+                    <option selected>Selecione o produto</option>
+                    <option value="1">Cartão de crédito</option>
+                    <option value="2">Cartão de débito</option>
+                    <option value="3">PIX</option>
+                </select>  
+            </div>
+
+            <div class="col-4 d-flex flex-direction-row align-items-center">
+                <h4 class="title me-4">Qtde:</h4>
+                <input name="quantidade" id="quantidade" class="form-control input-primary border-0 rounded-2" type="number">
+            </div>
+
+            <div class="col-4">
+                <button type="button" class="btn btn-primary button-primary-system fw-semibold btn-lg border border-0 w-100">
+                    Adicionar produto
+                </button>
+            </div>
+
+        </div>
 
         <div class="p-4 d-flex flex-direction-row justify-content-between">
             <table class="tabela w-100">
@@ -80,30 +94,10 @@ ValidaAcesso::validarAcesso();
             </table>
         </div>
 
-        <div class="d-flex flex-direction-row justify-content-between p-4">
-            <div class="d-flex flex-direction-row align-items-center">
-                <h4 class="title me-4">Pagamento:</h4>
-                <select class="form-select input-primary border-0" id="metodoPagamento" aria-label="Default select example">
-                    <option selected>Selecione o método de pagamento</option>
-                    <option value="1">Cartão de crédito</option>
-                    <option value="2">Cartão de débito</option>
-                    <option value="3">PIX</option>
-                </select>  
-            </div>
-
-            <div class="d-flex flex-direction-row align-items-center">
-                <h4 class="title me-4">Total:</h4>
-                <input name="totalMesa" id="totalMesa" value="R$ 500,00" class="form-control input-primary border-0 rounded-2" type="text" readonly>
-            </div>
-        </div>
 
         <div class="d-flex justify-content-end p-4">
-            <button type="button" class="btn btn-primary btn-danger fw-semibold btn-lg border border-0 mx-4">
-                Cancelar
-            </button>
-
-            <button type="button" class="btn btn-secondary btn-success fw-semibold btn-lg border border-0">
-                Finalizar
+            <button type="button" class="btn btn-primary btn-success fw-semibold btn-lg border border-0">
+                Concluir
             </button>
         </div>
 

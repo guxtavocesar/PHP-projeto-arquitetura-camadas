@@ -8,6 +8,7 @@
             </svg>
         </a>
     </li>
+
     <li class="nav-item">
         <a href="<?php echo HOST ?>/estoque ">
             <svg class="icon-logo mx-2 my-4" width="50" height="50" viewBox="0 0 70 70" fill="none" xmlns="http://www.w3.org/2000/svg">

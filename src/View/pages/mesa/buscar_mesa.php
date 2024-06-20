@@ -44,20 +44,13 @@ ValidaAcesso::validarAcesso();
 </div>
 
 <script>
+
 function buscaMesa(event) {
 
     event.preventDefault();
     let numeroMesa = document.getElementById('numeroMesa').value;
 
     window.location.href = `<?php echo HOST ?>/mesa/detalhes/${numeroMesa}`;
-}
-
-async function hello() {
-
-    const response = await fetch('<?php echo HOST ?>/mesa/hello');
-    const data = await response.json();
-
-    console.log(data.message);
 }
 
 </script>

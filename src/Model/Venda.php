@@ -10,6 +10,7 @@ class Venda{
     private ?int $idIngrediente;
     private ?int $quantidade;
     private ?float $valorTotal;
+    private ?string $status;
 
     public function getDataHora(){
         return $this->dataHora;
@@ -57,5 +58,13 @@ class Venda{
 
     public function setValorTotal($valorTotal){
         $this->valorTotal = $valorTotal;
+    }
+
+    public function getStatus(){
+        return $this->status;
+    }
+
+    public function setStatus(string $status){
+        $this->status = $status;
     }
 }

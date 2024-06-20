@@ -10,6 +10,7 @@ class Ingrediente{
     private int $idFornecedor;
     private string $fornecedor;
     private ?float $valorCusto;
+    private ?float $valorVenda;
     private ?int $estoqueAtual;
     private ?int $estoqueMaximo;
 
@@ -66,6 +67,16 @@ class Ingrediente{
     public function getValorCusto()
     {
         return $this->valorCusto;
+    }
+
+    public function setValorVenda(int $valorVenda)
+    {
+        $this->valorVenda = $valorVenda;
+    }
+
+    public function getValorVenda()
+    {
+        return $this->valorVenda;
     }
 
     public function setValorCusto(int $valorCusto)

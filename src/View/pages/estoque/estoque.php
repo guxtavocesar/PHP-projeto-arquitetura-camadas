@@ -46,6 +46,7 @@ ValidaAcesso::validarAcesso();
                                 <th class="p-3" scope="col">Marca</th>
                                 <th class="p-3" scope="col">Fornecedor</th>
                                 <th class="p-3" scope="col">Custo</th>
+                                <th class="p-3" scope="col">Venda</th>
                                 <th class="p-3" scope="col">Estoque Atual</th>
                                 <th class="p-3" scope="col">Estoque Max</th>
                                 <th class="p-3" scope="col"></th>
@@ -53,13 +54,19 @@ ValidaAcesso::validarAcesso();
                         </thead>
                         <tbody>
 
-                        <?php foreach($ingredientes as $ingrediente) { ?>
+                        <?php 
+                        
+                        if(isset($ingredientes)){
+
+                            foreach($ingredientes as $ingrediente) { 
+                        ?>
                             <tr>
                                 <th class="p-3" scope="row"><?php echo $ingrediente->getId(); ?></th>
                                 <td class="p-3"><?php echo $ingrediente->getDescricao(); ?></td>
                                 <td class="p-3"><?php echo $ingrediente->getMarca(); ?></td>
                                 <td class="p-3"><?php echo $ingrediente->getFornecedor(); ?></td>
                                 <td class="p-3"><?php echo $ingrediente->getValorCusto(); ?></td>
+                                <td class="p-3"><?php echo $ingrediente->getValorVenda(); ?></td>
                                 <td class="p-3"><?php echo $ingrediente->getEstoqueAtual(); ?></td>
                                 <td class="p-3"><?php echo $ingrediente->getEstoqueMaximo(); ?></td>
                                 
@@ -79,7 +86,7 @@ ValidaAcesso::validarAcesso();
                                 </div>
                                 </td>
                             </tr> 
-                            <?php } ?>
+                            <?php } } ?>
                         </tbody>
                     </table>
                 </div>

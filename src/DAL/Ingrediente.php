@@ -8,11 +8,12 @@ class Ingrediente{
 
     public function insert(\MODEl\Ingrediente $ingrediente)
     {
-        $sql = "INSERT INTO ingrediente(Descricao, Marca, ValorCusto, EstoqueAtual, EstoqueMaximo, IdFornecedor)
+        $sql = "INSERT INTO ingrediente(Descricao, Marca, ValorCusto, ValorVenda, EstoqueAtual, EstoqueMaximo, IdFornecedor)
                 VALUES(
                    '{$ingrediente->getDescricao()}',
                    '{$ingrediente->getMarca()}',
                    '{$ingrediente->getValorCusto()}',
+                   '{$ingrediente->getValorVenda()}',
                    '{$ingrediente->getEstoqueAtual()}',
                    '{$ingrediente->getEstoqueMaximo()}',
                    '{$ingrediente->getIdFornecedor()}'
@@ -46,6 +47,7 @@ class Ingrediente{
             $ingrediente->setDescricao($row['Descricao']);
             $ingrediente->setMarca($row['Marca']);
             $ingrediente->setValorCusto($row['ValorCusto']);
+            $ingrediente->setValorVenda($row['ValorVenda']);
             $ingrediente->setEstoqueAtual($row['EstoqueAtual']);
             $ingrediente->setEstoqueMaximo($row['EstoqueMaximo']);
             $ingrediente->setFornecedor($row['NomeFornecedor']);
@@ -74,6 +76,7 @@ class Ingrediente{
         $ingrediente->setDescricao($result['Descricao']);
         $ingrediente->setMarca($result['Marca']);
         $ingrediente->setValorCusto($result['ValorCusto']);
+        $ingrediente->setValorVenda($result['ValorVenda']);
         $ingrediente->setEstoqueAtual($result['EstoqueAtual']);
         $ingrediente->setEstoqueMaximo($result['EstoqueMaximo']);
         $ingrediente->setIdFornecedor($result['IdFornecedor']);
@@ -87,6 +90,7 @@ class Ingrediente{
                 SET Descricao = ?, 
                     Marca = ?, 
                     ValorCusto = ?, 
+                    ValorVenda = ?, 
                     EstoqueAtual = ?, 
                     EstoqueMaximo = ?, 
                     IdFornecedor = ?
@@ -99,6 +103,7 @@ class Ingrediente{
             $ingrediente->getDescricao(), 
             $ingrediente->getMarca(),
             $ingrediente->getValorCusto(),
+            $ingrediente->getValorVenda(),
             $ingrediente->getEstoqueAtual(),
             $ingrediente->getEstoqueMaximo(),
             $ingrediente->getIdFornecedor(),

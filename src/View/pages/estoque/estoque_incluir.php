@@ -18,8 +18,9 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $ingrediente->setEstoqueAtual($_POST['quantidadeAtual']);
     $ingrediente->setEstoqueMaximo($_POST['quantidadeMaxima']);
     $ingrediente->setValorCusto($_POST['valorCusto']);
-    $ingrediente->setMarca($_POST['marca']);
+    $ingrediente->setValorVenda($_POST['valorVenda']);
     $ingrediente->setIdFornecedor($_POST['fornecedor']);
+    $ingrediente->setMarca($_POST['marca']);
 
     $bllIngrediente = new \BLL\Ingrediente();
     $bllIngrediente->insert($ingrediente);
@@ -55,19 +56,26 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         </div>
 
                         <div class="mb-3 row">
-                            <div class="col-4">
+                            <div class="col-6">
                                 <label for="quantidadeAtual" class="form-label title fw-semibold">Quantidade Atual</label>
                                 <input type="number" class="form-control input-primary border-0" id="quantidadeAtual" name="quantidadeAtual">
                             </div>
 
-                            <div class="col-4">
+                            <div class="col-6">
                                 <label for="quantidadeMaxima" class="form-label title fw-semibold">Quantidade Máxima</label>
                                 <input type="number" class="form-control input-primary border-0" id="quantidadeMaxima" name="quantidadeMaxima">
                             </div>
+                        </div>
 
-                            <div class="col-4">
+                        <div class="mb-3 row">
+                            <div class="col-6">
                                 <label for="valorCusto" class="form-label title fw-semibold">Valor de custo</label>
                                 <input type="text" class="form-control input-primary border-0" id="valorCusto" name="valorCusto">
+                            </div>
+
+                            <div class="col-6">
+                                <label for="valorVenda" class="form-label title fw-semibold">Valor de venda</label>
+                                <input type="text" class="form-control input-primary border-0" id="valorVenda" name="valorVenda">
                             </div>
                         </div>
 
@@ -79,7 +87,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         <div class="mb-3">
                             <label for="fornecedor" class="form-label title fw-semibold">Fornecedor</label>
                             <select class="form-select input-primary border-0" id="fornecedor" name="fornecedor">
-                                <option value="" selected>Selecione o fornecedor</option>
 
                                 <?php foreach($fornecedores as $fornecedor){ ?>
                                     <option value="<?php echo $fornecedor->getId(); ?>"><?php echo $fornecedor->getNome(); ?></option>

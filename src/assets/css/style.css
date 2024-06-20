@@ -77,12 +77,17 @@ body{
 
 /* Estilos referentes aos icones do sistema */
 
-.icon-logo{
+.icon-logo, .bi{
     cursor: pointer;
 }
 
 .icon-logo:hover path {
     stroke: var(--second-color);
+    transition: 500ms;
+}
+
+.bi:hover path {
+    fill: var(--second-color);
     transition: 500ms;
 }
 
