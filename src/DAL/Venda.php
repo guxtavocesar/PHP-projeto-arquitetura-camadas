@@ -92,7 +92,7 @@ class Venda{
 
     public function getTotalVendasByMesa($idMesa){
 
-        $sql = 'SELECT SUM(ValorTotal) AS totalVenda FROM venda WHERE NumeroMesa = ? AND Status = "ABE"';
+        $sql = 'SELECT ROUND(SUM(ValorTotal), 2) AS totalVenda FROM venda WHERE NumeroMesa = ? AND Status = "ABE"';
 
         $con = \DAL\Conexao\Conexao::conectar();
 

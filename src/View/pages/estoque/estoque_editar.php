@@ -18,8 +18,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $ingrediente->setDescricao($_POST['descricao']);
     $ingrediente->setEstoqueAtual($_POST['quantidadeAtual']);
     $ingrediente->setEstoqueMaximo($_POST['quantidadeMaxima']);
-    $ingrediente->setValorCusto($_POST['valorCusto']);
-    $ingrediente->setValorVenda($_POST['valorVenda']);
+    $ingrediente->setValorCusto(number_format($_POST['valorCusto'], 2));
+    $ingrediente->setValorVenda(number_format($_POST['valorVenda'], 2));
     $ingrediente->setMarca($_POST['marca']);
     $ingrediente->setIdFornecedor($_POST['fornecedor']);
 
@@ -55,41 +55,41 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
                         <div class="mb-3">
                             <label for="descricao" class="form-label title fw-semibold">Descrição</label>
-                            <input type="text" class="form-control input-primary border-0" id="descricao" name="descricao" value="<?php echo $ingrediente->getDescricao(); ?>">
+                            <input type="text" class="form-control input-primary border-0" id="descricao" name="descricao" value="<?php echo $ingrediente->getDescricao(); ?>" required>
                         </div>
 
                         <div class="mb-3 row">
                             <div class="col-6">
                                 <label for="quantidadeAtual" class="form-label title fw-semibold">Quantidade Atual</label>
-                                <input type="number" class="form-control input-primary border-0" id="quantidadeAtual" name="quantidadeAtual" value="<?php echo $ingrediente->getEstoqueAtual(); ?>">
+                                <input type="number" class="form-control input-primary border-0" id="quantidadeAtual" name="quantidadeAtual" value="<?php echo $ingrediente->getEstoqueAtual(); ?>" required>
                             </div>
 
                             <div class="col-6">
                                 <label for="quantidadeMaxima" class="form-label title fw-semibold">Quantidade Máxima</label>
-                                <input type="number" class="form-control input-primary border-0" id="quantidadeMaxima" name="quantidadeMaxima" value="<?php echo $ingrediente->getEstoqueMaximo(); ?>">
+                                <input type="number" class="form-control input-primary border-0" id="quantidadeMaxima" name="quantidadeMaxima" value="<?php echo $ingrediente->getEstoqueMaximo(); ?>" required>
                             </div>
                         </div>
 
                         <div class="mb-3 row">
                             <div class="col-6">
                                 <label for="valorCusto" class="form-label title fw-semibold">Valor de custo</label>
-                                <input type="text" class="form-control input-primary border-0" id="valorCusto" name="valorCusto" value="<?php echo $ingrediente->getValorCusto(); ?>">
+                                <input type="text" class="form-control input-primary border-0" id="valorCusto" name="valorCusto" value="<?php echo $ingrediente->getValorCusto(); ?>" required>
                             </div>
 
                             <div class="col-6">
                                 <label for="valorVenda" class="form-label title fw-semibold">Valor de venda</label>
-                                <input type="text" class="form-control input-primary border-0" id="valorVenda" name="valorVenda" value="<?php echo $ingrediente->getValorVenda(); ?>">
+                                <input type="text" class="form-control input-primary border-0" id="valorVenda" name="valorVenda" value="<?php echo $ingrediente->getValorVenda(); ?>" required>
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="marca" class="form-label title fw-semibold">Marca</label>
-                            <input type="text" class="form-control input-primary border-0" id="marca" name="marca" value="<?php echo $ingrediente->getMarca(); ?>">
+                            <input type="text" class="form-control input-primary border-0" id="marca" name="marca" value="<?php echo $ingrediente->getMarca(); ?>" required>
                         </div>
 
                         <div class="mb-3">
                             <label for="fornecedor" class="form-label title fw-semibold">Fornecedor</label>
-                            <select class="form-select input-primary border-0" id="fornecedor" name="fornecedor">
+                            <select class="form-select input-primary border-0" id="fornecedor" name="fornecedor" required>
 
                                 <?php foreach($fornecedores as $fornecedor){ ?>
                                     <option value="<?php echo $fornecedor->getId(); ?>" <?php echo $ingrediente->getIdFornecedor() == $fornecedor->getId() ? 'selected' : '' ?> ><?php echo $fornecedor->getNome(); ?></option>
@@ -111,5 +111,34 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         </div>
     </form>
 </body>
+
+<script>
+
+document.getElementById('valorVenda').addEventListener('change', (event) => {
+
+const floatInput = event.target.value;
+
+    if(!isFloat(floatInput)){
+        document.getElementById('valorVenda').value = ''; 
+    }
+});
+
+document.getElementById('valorCusto').addEventListener('change', (event) => {
+
+    const floatInput = event.target.value;
+
+    if(!isFloat(floatInput)) {
+        document.getElementById('valorCusto').value = ''; 
+    }
+});
+
+function isFloat(value) {
+
+    const number = parseFloat(value);
+
+    return !isNaN(number) && /^[+-]?([0-9]*[.])?[0-9]+$/.test(value);
+}
+
+</script>
 
 </html>

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 25/06/2024 às 04:42
+-- Tempo de geração: 25/06/2024 às 22:31
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -59,11 +59,7 @@ CREATE TABLE `funcionario` (
 --
 
 INSERT INTO `funcionario` (`IdFuncionario`, `Nome`, `Nascimento`, `CPF`, `Senha`, `IdTipoFuncionario`) VALUES
-(1, 'Gustavo Cesar', '2024-12-03', '50155054856', 'e10adc3949ba59abbe56e057f20f883e', 1),
-(2, 'Nicolas Fernandes', '2004-12-03', '55055055056', 'e10adc3949ba59abbe56e057f20f883e', 1),
-(3, 'Fernando Gomes', '2004-12-03', '55555555555', '14e1b600b1fd579f47433b88e8d85291', 1),
-(4, 'Roberto da Silva', '2004-05-12', '44444444444', 'e10adc3949ba59abbe56e057f20f883e', 1),
-(5, 'Ricardo Rodrigues', '2006-05-12', '88888888888', '25f9e794323b453885f5181f1b624d0b', 1);
+(1, 'Gustavo Cesar', '2024-12-03', '50155054856', 'e10adc3949ba59abbe56e057f20f883e', 1);
 
 -- --------------------------------------------------------
 
@@ -75,8 +71,8 @@ CREATE TABLE `ingrediente` (
   `IdIngrediente` int(11) NOT NULL,
   `Descricao` varchar(100) NOT NULL,
   `Marca` varchar(100) NOT NULL,
-  `ValorCusto` float NOT NULL,
-  `ValorVenda` float NOT NULL,
+  `ValorCusto` float(10,2) NOT NULL,
+  `ValorVenda` float(10,2) NOT NULL,
   `EstoqueAtual` int(11) NOT NULL,
   `EstoqueMaximo` int(11) NOT NULL,
   `IdFornecedor` int(11) NOT NULL
@@ -87,9 +83,9 @@ CREATE TABLE `ingrediente` (
 --
 
 INSERT INTO `ingrediente` (`IdIngrediente`, `Descricao`, `Marca`, `ValorCusto`, `ValorVenda`, `EstoqueAtual`, `EstoqueMaximo`, `IdFornecedor`) VALUES
-(1, 'Café expresso', 'Nescafé', 10, 250, 150, 200, 1),
-(2, 'Café Capuccino Italiano', 'Jaguari', 50, 75, 450, 800, 1),
-(3, 'Chá Matte', 'Leão do Chá', 10, 150, 5, 90, 1);
+(1, 'Café expresso', 'Nescafé', 15.90, 16.90, 150, 200, 1),
+(2, 'Café Italiano', 'Jaguari', 12.55, 19.99, 450, 800, 1),
+(3, 'Chá Matte', 'Chá Matte', 10.99, 15.98, 35, 90, 1);
 
 -- --------------------------------------------------------
 

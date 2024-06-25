@@ -36,7 +36,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             <div class="flex-row container my-4">
                 <div class="d-flex justify-content-center rounded-4">
-                    <div class="rounded-3 p-5 mt-4 w-75" style="background-color: var(--primary-color); min-height: 60vh;">
+                    <div class="rounded-3 p-5 mt-4 w-75" style="background-color: var(--primary-color); min-height: 82vh;">
                         
                         <div class="d-flex flex-direction-row justify-content-between align-items-center">
                             <h3 class="fs-2 mb-4 mx-2 logo-title">Informações do Funcionário</h3>
@@ -56,9 +56,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                         </div>
                         <div class="mb-3">
                             <p class="title fw-semibold" style="font-size: 2rem">CPF: <small><?php echo $_SESSION['user']['CPF'] ?></small> </>
-                        </div>
-                        <div class="mb-3">
-                            <p class="title fw-semibold" style="font-size: 2rem">Tipo: <small><?php echo $_SESSION['user']['IdTipoFuncionario'] ?></small> </>
                         </div>
 
                         <div class="d-flex flex-row justify-content-end">

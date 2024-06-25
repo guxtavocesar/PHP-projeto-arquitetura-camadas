@@ -98,7 +98,7 @@ if (isset($_POST['cpf'])) {
 
         <div class="mb-3 mb-5">
             <label for="idTipo" class="form-label title fw-semibold">Informe o tipo</label>
-            <select class="form-select input-primary border-0" aria-label="Default select example" id="idTipo" name="idTipo">
+            <select class="form-select input-primary border-0" aria-label="Default select example" id="idTipo" name="idTipo" required>
 
             <?php
             foreach ($listaTipos as $tipo) {

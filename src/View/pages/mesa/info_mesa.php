@@ -87,7 +87,7 @@ ValidaAcesso::validarAcesso();
                     Sair
                 </a>
 
-                <button name="finalizar" type="button" onclick="finalizarMesa()" class="btn btn-secondary btn-success fw-semibold btn-lg border border-0">
+                <button name="finalizar" id="finalizar" type="button" onclick="finalizarMesa()" class="btn btn-secondary btn-success fw-semibold btn-lg border border-0">
                     Finalizar
                 </button>
             </div>
@@ -139,7 +139,10 @@ async function finalizarMesa() {
 
     // Exibindo mensagem 
     let container = document.getElementById('message');
+    let buttonFinalizar = document.getElementById('finalizar');
+
     container.style = 'display: block!important';
+    buttonFinalizar.style = 'display: none!important';
 
     container.innerHTML = `
     

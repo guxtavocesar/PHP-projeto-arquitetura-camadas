@@ -69,7 +69,7 @@ class Ingrediente{
         return $this->valorCusto;
     }
 
-    public function setValorVenda(int $valorVenda)
+    public function setValorVenda(float $valorVenda)
     {
         $this->valorVenda = $valorVenda;
     }
@@ -79,7 +79,7 @@ class Ingrediente{
         return $this->valorVenda;
     }
 
-    public function setValorCusto(int $valorCusto)
+    public function setValorCusto(float $valorCusto)
     {
         $this->valorCusto = $valorCusto;
     }
