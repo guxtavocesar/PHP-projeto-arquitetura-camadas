@@ -24,9 +24,9 @@ ValidaAcesso::validarAcesso();
     <!-- Menu lateral -->
     <?php include_once(ROOT."/src/View/components/menu-lateral.php"); ?>
 
-    <div class="container my-4">
+    <div class="container my-4 mb-5">
 
-        <div class="menu-cardapios container p-5 rounded-4" style="background-color: var(--primary-color); min-height: 69vh">
+        <div class="menu-cardapios container p-5 rounded-4" style="background-color: var(--primary-color);">
             
         <div class="row mb-2">
 

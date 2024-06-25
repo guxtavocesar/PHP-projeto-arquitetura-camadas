@@ -97,6 +97,7 @@ class Ingrediente{
                 WHERE IdIngrediente = ?';
 
         $con = \DAL\Conexao\Conexao::conectar();
+        
         $query = $con->prepare($sql);
 
         $result = $query->execute(array(

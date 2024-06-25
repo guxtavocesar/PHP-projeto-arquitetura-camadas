@@ -2,9 +2,11 @@
 
 namespace Model;
 
+require_once(ROOT.'/src/MODEL/Ingrediente.php');
+
 class Venda{
 
-    private ?string $dataHora;
+    private ?int $idVenda;
     private ?int $numeroMesa;
     private ?int $idFuncionario;
     private ?int $idIngrediente;
@@ -12,12 +14,19 @@ class Venda{
     private ?float $valorTotal;
     private ?string $status;
 
-    public function getDataHora(){
-        return $this->dataHora;
+    public \MODEL\Ingrediente $ingrediente;
+
+    public function __construct()
+    {
+        $this->ingrediente = new \MODEL\Ingrediente();
     }
 
-    public function setDataHora(string $dataHora){
-        $this->dataHora = $dataHora;
+    public function getIdVenda(){
+        return $this->idVenda;
+    }
+
+    public function setIdVenda(int $idVenda){
+        $this->idVenda = $idVenda;
     }
 
     public function getNumeroMesa(){
@@ -56,8 +65,8 @@ class Venda{
         return $this->valorTotal;
     }
 
-    public function setValorTotal($valorTotal){
-        $this->valorTotal = $valorTotal;
+    public function setValorTotal($quantidade, $valorProduto){
+        $this->valorTotal = ($quantidade * $valorProduto);
     }
 
     public function getStatus(){

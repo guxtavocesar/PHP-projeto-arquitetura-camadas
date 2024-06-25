@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 20/06/2024 às 22:17
+-- Tempo de geração: 25/06/2024 às 04:42
 -- Versão do servidor: 10.4.28-MariaDB
 -- Versão do PHP: 8.2.4
 
@@ -87,9 +87,9 @@ CREATE TABLE `ingrediente` (
 --
 
 INSERT INTO `ingrediente` (`IdIngrediente`, `Descricao`, `Marca`, `ValorCusto`, `ValorVenda`, `EstoqueAtual`, `EstoqueMaximo`, `IdFornecedor`) VALUES
-(1, 'Café expresso', 'Nescafé', 99, 250, 150, 200, 1),
-(2, 'Café Capuccino da TV', 'Jaguari', 50, 75, 150, 800, 1),
-(3, 'Chá Matte', 'Leão do Chá', 10, 150, 8, 90, 1);
+(1, 'Café expresso', 'Nescafé', 10, 250, 150, 200, 1),
+(2, 'Café Capuccino Italiano', 'Jaguari', 50, 75, 450, 800, 1),
+(3, 'Chá Matte', 'Leão do Chá', 10, 150, 5, 90, 1);
 
 -- --------------------------------------------------------
 
