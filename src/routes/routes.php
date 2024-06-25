@@ -16,12 +16,9 @@ $routes = [
     '/mesa/adicionar/{id}' => 'MesaController@loadViewAddProduto',
     '/mesa/finalizar/{id}' => 'MesaController@finalizarMesa',
 
-    # Rotas referentes ao cardapio
-    '/cardapio' => 'CardapioController@index',
-    '/cardapio/{id}' => 'CardapioController@loadInfoCardapio',
-
     # Rotas referentes ao estoque
     '/estoque' => 'EstoqueController@index',
     '/estoque/incluir' => 'EstoqueController@loadEstoqueIncluir',
+    '/estoque/excluir/{id}' => 'EstoqueController@loadEstoqueExcluir',
     '/estoque/editar/{id}' => 'EstoqueController@loadEstoqueEditar',
 ];

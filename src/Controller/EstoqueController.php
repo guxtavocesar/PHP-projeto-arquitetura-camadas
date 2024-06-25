@@ -34,6 +34,17 @@ class EstoqueController extends RenderView{
         $this->renderView('estoque/', 'estoque_incluir', $params);
     }
 
+    public function loadEstoqueExcluir($args) 
+    {
+        $bllIngrediente = new \BLL\Ingrediente();
+
+        $params = array(
+            'codigo' => $bllIngrediente->selectBy($args[0])
+        );
+
+        $this->renderView('estoque/', 'estoque_excluir', $params);
+    }
+
     public function loadEstoqueEditar($args)
     {
 

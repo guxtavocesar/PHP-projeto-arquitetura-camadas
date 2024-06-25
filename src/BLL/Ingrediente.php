@@ -31,4 +31,9 @@ class Ingrediente{
         return $dalIngrediente->update($ingrediente);
     }
 
+    public function deleteBy($id)
+    {
+        $dalIngrediente = new \DAL\Ingrediente();
+        $dalIngrediente->deleteBy($id);
+    }    
 }

@@ -84,7 +84,8 @@ class Ingrediente{
         return $ingrediente;
     }
 
-    public function update(\MODEL\Ingrediente $ingrediente){
+    public function update(\MODEL\Ingrediente $ingrediente)
+    {
 
         $sql = 'UPDATE ingrediente 
                 SET Descricao = ?, 
@@ -114,5 +115,17 @@ class Ingrediente{
         $con = \DAL\Conexao\Conexao::desconectar();
 
         return $result;
+    }
+
+    public function deleteBy($id)
+    {
+        $sql = 'DELETE FROM ingrediente WHERE IdIngrediente = ?';
+
+        $con = \DAL\Conexao\Conexao::conectar();
+        
+        $query = $con->prepare($sql);
+        $query->execute(array($id));
+
+        $con = \DAL\Conexao\Conexao::desconectar();
     }
 }
