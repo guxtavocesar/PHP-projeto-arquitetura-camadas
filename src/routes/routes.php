@@ -19,6 +19,5 @@ $routes = [
     # Rotas referentes ao estoque
     '/estoque' => 'EstoqueController@index',
     '/estoque/incluir' => 'EstoqueController@loadEstoqueIncluir',
-    '/estoque/excluir/{id}' => 'EstoqueController@loadEstoqueExcluir',
     '/estoque/editar/{id}' => 'EstoqueController@loadEstoqueEditar',
 ];

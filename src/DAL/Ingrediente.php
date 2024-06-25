@@ -116,16 +116,4 @@ class Ingrediente{
 
         return $result;
     }
-
-    public function deleteBy($id)
-    {
-        $sql = 'DELETE FROM ingrediente WHERE IdIngrediente = ?';
-
-        $con = \DAL\Conexao\Conexao::conectar();
-        
-        $query = $con->prepare($sql);
-        $query->execute(array($id));
-
-        $con = \DAL\Conexao\Conexao::desconectar();
-    }
 }
