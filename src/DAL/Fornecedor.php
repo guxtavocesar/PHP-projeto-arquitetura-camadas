@@ -3,7 +3,7 @@
 namespace DAL;
 
 require_once(ROOT.'/src/DAL/Conexao/Conexao.php');
-require_once(ROOT.'/src/MODEL/Fornecedor.php');
+require_once(ROOT.'/src/Model/Fornecedor.php');
 
 class Fornecedor{
 

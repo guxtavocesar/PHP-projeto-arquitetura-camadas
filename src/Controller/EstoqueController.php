@@ -6,7 +6,7 @@ require_once(__DIR__."/../utils/RenderView.php");
 require_once(__DIR__."/../BLL/Fornecedor.php");
 require_once(__DIR__."/../BLL/Ingrediente.php");
 
-require_once(__DIR__."/../MODEL/Ingrediente.php");
+require_once(__DIR__."/../Model/Ingrediente.php");
 
 use \Utils\RenderView;
 

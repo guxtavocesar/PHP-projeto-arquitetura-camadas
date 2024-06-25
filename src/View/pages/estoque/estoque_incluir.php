@@ -4,7 +4,7 @@ session_start();
 
 require_once (ROOT.'/src/utils/ValidaAcesso.php');
 require_once (ROOT.'/src/BLL/Ingrediente.php');
-require_once (ROOT.'/src/MODEL/Ingrediente.php');
+require_once (ROOT.'/src/Model/Ingrediente.php');
 
 use Utils\ValidaAcesso;
 
