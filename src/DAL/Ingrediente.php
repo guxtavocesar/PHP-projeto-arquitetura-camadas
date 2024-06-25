@@ -2,7 +2,7 @@
 
 namespace DAL;
 
-require_once(ROOT.'/src/MODEL/Ingrediente.php');
+require_once(ROOT.'/src/Model/Ingrediente.php');
 
 class Ingrediente{
 

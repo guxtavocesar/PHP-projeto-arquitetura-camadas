@@ -2,7 +2,7 @@
 
 namespace DAL;
 
-require_once(ROOT.'/src/MODEL/Mesa.php');
+require_once(ROOT.'/src/Model/Mesa.php');
 require_once(ROOT.'/src/DAL/Conexao/Conexao.php');
 
 class Mesa{

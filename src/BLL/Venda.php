@@ -3,7 +3,7 @@
 namespace BLL;
 
 require_once(ROOT.'/src/DAL/Venda.php');
-require_once(ROOT.'/src/MODEL/Venda.php');
+require_once(ROOT.'/src/Model/Venda.php');
 
 class Venda{
     public function getVendaById($idMesa)

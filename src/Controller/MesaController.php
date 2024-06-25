@@ -9,7 +9,7 @@ require_once(ROOT."/src/BLL/Venda.php");
 require_once(ROOT."/src/BLL/Mesa.php");
 require_once(ROOT."/src/BLL/Ingrediente.php");
 
-require_once(ROOT."/src/MODEL/Venda.php");
+require_once(ROOT."/src/Model/Venda.php");
 
 use \Utils\RenderView;
 use Utils\ValidaAcesso;

@@ -2,7 +2,7 @@
 
 namespace DAL;
 
-require_once(ROOT.'/src/MODEL/Venda.php');
+require_once(ROOT.'/src/Model/Venda.php');
 require_once(ROOT.'/src/DAL/Conexao/Conexao.php');
 require_once(ROOT.'/src/DAL/Ingrediente.php');
 

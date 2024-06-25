@@ -2,7 +2,7 @@
 
 namespace BLL;
 
-require_once(ROOT.'/src/MODEL/Ingrediente.php');
+require_once(ROOT.'/src/Model/Ingrediente.php');
 require_once(ROOT.'/src/DAL/Ingrediente.php');
 
 class Ingrediente{

@@ -3,7 +3,7 @@
 namespace BLL;
 
 require_once(ROOT.'/src/DAL/Mesa.php');
-require_once(ROOT.'/src/MODEL/Mesa.php');
+require_once(ROOT.'/src/Model/Mesa.php');
 
 class Mesa{
 
