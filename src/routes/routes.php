@@ -5,6 +5,7 @@ $routes = [
     '/' => 'MesaController@index',
 
     '/login' => 'LoginController@index',
+    '/login/showFuncionario' => 'FuncionarioController@showFuncionario',
     
     # Rotas referentes ao funcionario
     '/cadastro' => 'FuncionarioController@index',

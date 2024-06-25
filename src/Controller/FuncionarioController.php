@@ -12,4 +12,9 @@ class FuncionarioController extends RenderView {
 
         $this->renderView('login/','cadastro', []);
     }
+
+    public function showFuncionario() {
+
+        $this->renderView('login/', 'showFuncionario', []);
+    }
 }
