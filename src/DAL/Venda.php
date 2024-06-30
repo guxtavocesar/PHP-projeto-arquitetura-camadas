@@ -3,20 +3,19 @@
 namespace DAL;
 
 require_once(ROOT.'/src/Model/Venda.php');
+
 require_once(ROOT.'/src/DAL/Conexao/Conexao.php');
-require_once(ROOT.'/src/DAL/Ingrediente.php');
+require_once(ROOT.'/src/DAL/Produto.php');
 
 class Venda{
 
     public function getVendaById($idMesa)
     {
-        $sql = 'SELECT a.*,
-                b.Descricao,
-                b.ValorVenda
+        $sql = 'SELECT a.*, b.Descricao, b.ValorVenda
                 FROM venda AS a
-                LEFT JOIN ingrediente AS b ON b.IdIngrediente = a.IdIngrediente
-                WHERE a.NumeroMesa = ?
-                AND Status = "ABE"';
+                LEFT JOIN produto AS b ON b.IdProduto = a.IdProduto
+                WHERE (a.NumeroMesa = ?)
+                AND   (Status = "ABE")';
         
         $con = \DAL\Conexao\Conexao::conectar();
 
@@ -35,13 +34,13 @@ class Venda{
 
             $venda->setIdVenda($row['IdVenda']);
             $venda->setIdFuncionario($row['IdFuncionario']);
-            $venda->setIdIngrediente($row['IdIngrediente']);
+            $venda->setIdProduto($row['IdProduto']);
             $venda->setNumeroMesa($row['NumeroMesa']);
             $venda->setQuantidade($row['Quantidade']);
             $venda->setValorTotal($row['Quantidade'], $row['ValorVenda']);
             $venda->setStatus($row['Status']);
             
-            $venda->ingrediente->setDescricao($row['Descricao']);
+            $venda->produto->setDescricao($row['Descricao']);
 
             $listaVenda[] = $venda;
         }
@@ -53,7 +52,7 @@ class Venda{
     {
         $sql = "INSERT INTO venda (
                     IdFuncionario,
-                    IdIngrediente,
+                    IdProduto,
                     NumeroMesa,
                     Quantidade,
                     ValorTotal,
@@ -61,7 +60,7 @@ class Venda{
                 )
                 VALUES (
                     {$venda->getIdFuncionario()},
-                    {$venda->getIdIngrediente()},
+                    {$venda->getIdProduto()},
                     {$venda->getNumeroMesa()},
                     {$venda->getQuantidade()},
                     {$venda->getValorTotal()},
@@ -73,14 +72,13 @@ class Venda{
         $con->query($sql);
 
         // Dando baixa no estoque após o INSERT
-        $dalIngrediente = new \DAL\Ingrediente();
-        $ingrediente = $dalIngrediente->selectBy($venda->getIdIngrediente());
+        $dalProduto = new \DAL\Produto();
+        $produto = $dalProduto->selectBy($venda->getIdProduto());
 
-        $estoqueAtualizado = $ingrediente->getEstoqueAtual() - $venda->getQuantidade();
+        $estoqueAtualizado = $produto->getEstoqueAtual() - $venda->getQuantidade();
 
-        $sqlBaixa = "UPDATE ingrediente SET
-                        EstoqueAtual = $estoqueAtualizado
-                    WHERE IdIngrediente = {$venda->getIdIngrediente()}
+        $sqlBaixa = "UPDATE produto SET EstoqueAtual = $estoqueAtualizado
+                     WHERE IdProduto = {$venda->getIdProduto()}
                     ";
 
         $result = $con->query($sqlBaixa);
@@ -90,8 +88,8 @@ class Venda{
         return $result;
     }
 
-    public function getTotalVendasByMesa($idMesa){
-
+    public function getTotalVendasByMesa($idMesa)
+    {
         $sql = 'SELECT ROUND(SUM(ValorTotal), 2) AS totalVenda FROM venda WHERE NumeroMesa = ? AND Status = "ABE"';
 
         $con = \DAL\Conexao\Conexao::conectar();
@@ -104,8 +102,8 @@ class Venda{
         return $result['totalVenda'];
     }
 
-    public function finalizarVenda($idMesa){
-
+    public function finalizarVenda($idMesa)
+    {
         $sql = 'UPDATE venda SET Status = "FEC" WHERE NumeroMesa = ? AND Status = "ABE"';
 
         $con = \DAL\Conexao\Conexao::conectar();

@@ -2,20 +2,10 @@
 session_start();
 
 require_once (ROOT.'/src/utils/ValidaAcesso.php');
-require_once (ROOT.'/src/BLL/Ingrediente.php');
 
 use Utils\ValidaAcesso;
 
 ValidaAcesso::validarAcesso();
-
-if($_SERVER['REQUEST_METHOD'] == 'POST'){
-
-    if ($_POST['logout'] == "true") {
-        session_destroy();
-
-        header('location: ' .HOST);
-    }
-}
 
 ?>
 
@@ -45,9 +35,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                             </svg>
                         </div>
 
-                        <div class="mb-3">
-                            <p class="title fw-semibold" style="font-size: 2rem">ID: <small><?php echo $_SESSION['user']['IdFuncionario'] ?></small> </f>
-                        </div>
                         <div class="mb-3">
                             <p class="title fw-semibold" style="font-size: 2rem">Nome: <small><?php echo $_SESSION['user']['Nome'] ?></small> </>
                         </div>

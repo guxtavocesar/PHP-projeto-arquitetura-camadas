@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Lily+Script+One&display=swap');
 
-/* Definindo as váriaveis de estilo */
+/* Definindo as variáveis de estilo personalizados do sistema */
 
 :root{
     --primary-color: #592C28;
@@ -58,7 +58,7 @@ body{
     color: var(--third-color)!important;
 }
 
-/* Estilos referentes aos botões personalizados do sistema*/
+/* Estilos referentes aos botões personalizados do sistema */
 
 .button-primary-system{
     background-color: var(--button-primary-color);

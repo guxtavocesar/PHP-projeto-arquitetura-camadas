@@ -12,7 +12,7 @@ if(isset($_POST['cpf']) && isset($_POST['senha'])){
     $cpfUsuario   = trim($_POST['cpf']);
     $senhaUsuario = md5(trim($_POST['senha'])); 
 
-    $sql = 'SELECT * FROM funcionario WHERE CPF=? AND Senha =?';
+    $sql = 'SELECT * FROM funcionario WHERE CPF = ? AND Senha = ?';
     $con = DAL\Conexao\Conexao::conectar();
 
     $query = $con->prepare($sql);

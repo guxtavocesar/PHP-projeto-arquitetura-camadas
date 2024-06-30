@@ -2,7 +2,7 @@
 
 namespace Model;
 
-class Ingrediente{
+class Produto{
 
     private int $id;
     private ?string $descricao;

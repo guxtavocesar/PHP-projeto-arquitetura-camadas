@@ -2,19 +2,25 @@
 
 namespace Controller;
 
-require_once(__DIR__."/../utils/RenderView.php");
+require_once(ROOT."/src/utils/RenderView.php");
 
 use \Utils\RenderView;
 
 class FuncionarioController extends RenderView {
 
-    public function index() {
+    public function showFuncionario()
+    {
+        // Validando chamada via POST para efetuar o LOGOUT do USUÁRO
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
-        $this->renderView('login/','cadastro', []);
-    }
+            if ($_POST['logout'] == "true") {
+                
+                session_destroy();
+        
+                header('location: ' .HOST);
+            }
+        }
 
-    public function showFuncionario() {
-
-        $this->renderView('login/', 'showFuncionario', []);
+        $this->renderView('funcionario/', 'detalhes', []);
     }
 }

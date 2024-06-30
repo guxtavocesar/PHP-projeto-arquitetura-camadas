@@ -14,6 +14,6 @@ class RenderView{
     {
         extract($args);
 
-        require_once(__DIR__."/../View/pages/{$path}{$view}.php");
+        require_once(ROOT."/src/View/pages/{$path}{$view}.php");
     }
 }

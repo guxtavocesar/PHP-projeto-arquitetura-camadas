@@ -36,13 +36,19 @@ class Funcionario {
     {
         $senha = md5($funcionario->getSenha());
 
-        $sql = "INSERT INTO funcionario (Nome, Nascimento, CPF, senha, IdTipoFuncionario)
+        $sql = "INSERT INTO funcionario(
+                    Nome,
+                    Nascimento,
+                    CPF,
+                    senha,
+                    IdTipoFuncionario
+                )
                 VALUES(
-                '{$funcionario->getNome()}',
-                '{$funcionario->getDataNascimento()}',
-                '{$funcionario->getCpf()}',
-                '{$senha}',
-                '{$funcionario->getIdTipoFuncionario()}'
+                    '{$funcionario->getNome()}',
+                    '{$funcionario->getDataNascimento()}',
+                    '{$funcionario->getCpf()}',
+                    '{$senha}',
+                    '{$funcionario->getIdTipoFuncionario()}'
                 )
                 
                 ";

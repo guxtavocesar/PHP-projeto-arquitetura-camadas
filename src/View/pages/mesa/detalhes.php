@@ -67,7 +67,7 @@ ValidaAcesso::validarAcesso();
                         <?php foreach($vendas as $venda) { ?>
                         <tr>
                             <th class="p-2" scope="row"><?php echo $venda->getIdVenda(); ?></th>
-                            <td class="p-2"><?php echo $venda->ingrediente->getDescricao(); ?></td>
+                            <td class="p-2"><?php echo $venda->produto->getDescricao(); ?></td>
                             <td class="p-2">R$ <?php echo $venda->getValorTotal() ?></td>
                         </tr>
                         <?php } ?>

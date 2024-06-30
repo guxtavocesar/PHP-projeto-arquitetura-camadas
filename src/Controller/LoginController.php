@@ -2,17 +2,19 @@
 
 namespace Controller;
 
-require_once(__DIR__."/../utils/RenderView.php");
+require_once(ROOT."/src/utils/RenderView.php");
 
 use \Utils\RenderView;
 
 class LoginController extends RenderView {
 
-    public function index($args)
+    public function indexLogin($args)
     {
-        $this->renderView('login/', 'login', [
-            'title' => 'HomePage',
-            'user' => 'Gustavo César'
-        ]);
+        $this->renderView('login/', 'login', []);
+    }
+
+    public function indexCadastro()
+    {
+        $this->renderView('login/','cadastro', []);
     }
 }

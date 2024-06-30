@@ -7,19 +7,18 @@ require_once(ROOT."/src/utils/RenderView.php");
 
 require_once(ROOT."/src/BLL/Venda.php");
 require_once(ROOT."/src/BLL/Mesa.php");
-require_once(ROOT."/src/BLL/Ingrediente.php");
+require_once(ROOT."/src/BLL/Produto.php");
 
 require_once(ROOT."/src/Model/Venda.php");
 
 use \Utils\RenderView;
 use Utils\ValidaAcesso;
 
-
 class MesaController extends RenderView{
 
     public function index()
     {
-        $this->renderView('mesa/', 'buscar_mesa', []);
+        $this->renderView('mesa/', 'buscar', []);
     }
 
     public function loadViewInfoMesa($args)
@@ -35,7 +34,7 @@ class MesaController extends RenderView{
             'totalVendas' => $bllVenda->getTotalVendasByMesa($numeroMesa)
         ];
 
-        $this->renderView('mesa/', 'info_mesa', $params);
+        $this->renderView('mesa/', 'detalhes', $params);
     }
 
     public function finalizarMesa($args)
@@ -62,13 +61,13 @@ class MesaController extends RenderView{
         $numeroMesa = $args[0];
 
         // Recuperando BLL referente ao produto
-        $bllProduto = new \BLL\Ingrediente();
+        $bllProduto = new \BLL\Produto();
         
         $bllVenda = new \BLL\Venda();
         $message = '';
 
-        // Fazendo operações referente à adicionar venda
-        if(isset($_POST['enviar'])){
+        // Validando chamada via POST para adicionar VENDA à MESA
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
 
             $message = 'Produto adicionado com sucesso';
 
@@ -78,18 +77,16 @@ class MesaController extends RenderView{
 
             $venda->setIdFuncionario($_SESSION['user']['IdFuncionario']);
             $venda->setNumeroMesa($numeroMesa);
-
-            $venda->setIdIngrediente($_POST['txtProduto']);
+            $venda->setIdProduto($_POST['txtProduto']);
             $venda->setQuantidade($_POST['txtQuantidade']);
-
             $venda->setValorTotal($_POST['txtQuantidade'], $produto->getValorVenda());
 
+            // Definindo STATUS da VENDA como ABERTA em primeira instância
             $venda->setStatus('ABE');
 
             // Verificando se a quantidade é maior que o estoque atual
             if($venda->getQuantidade() <= $produto->getEstoqueAtual()){
 
-                // Inserindo venda
                 $bllVenda->insertVenda($venda);
             }
             else{
@@ -104,6 +101,6 @@ class MesaController extends RenderView{
             'message'    => $message
         ];
 
-        $this->renderView('mesa/', 'adicionar_produto_mesa', $params);
+        $this->renderView('mesa/', 'adicionar', $params);
     }
 }

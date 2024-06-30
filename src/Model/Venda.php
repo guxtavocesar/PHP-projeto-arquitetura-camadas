@@ -2,78 +2,92 @@
 
 namespace Model;
 
-require_once(ROOT.'/src/Model/Ingrediente.php');
+require_once(ROOT.'/src/Model/Produto.php');
 
 class Venda{
 
     private ?int $idVenda;
     private ?int $numeroMesa;
     private ?int $idFuncionario;
-    private ?int $idIngrediente;
+    private ?int $idProduto;
     private ?int $quantidade;
     private ?float $valorTotal;
     private ?string $status;
 
-    public \MODEL\Ingrediente $ingrediente;
+    public \MODEL\Produto $produto;
 
     public function __construct()
     {
-        $this->ingrediente = new \MODEL\Ingrediente();
+        $this->produto = new \MODEL\Produto();
     }
 
-    public function getIdVenda(){
+    public function getIdVenda()
+    {
         return $this->idVenda;
     }
 
-    public function setIdVenda(int $idVenda){
+    public function setIdVenda(int $idVenda)
+    {
         $this->idVenda = $idVenda;
     }
 
-    public function getNumeroMesa(){
+    public function getNumeroMesa()
+    {
         return $this->numeroMesa;
     }
 
-    public function setNumeroMesa(int $numeroMesa){
+    public function setNumeroMesa(int $numeroMesa)
+    {
         $this->numeroMesa = $numeroMesa;
     }
 
-    public function getIdFuncionario(){
+    public function getIdFuncionario()
+    {
         return $this->idFuncionario;
     }
 
-    public function setIdFuncionario(int $idFuncionario){
+    public function setIdFuncionario(int $idFuncionario)
+    {
         $this->idFuncionario = $idFuncionario;
     }
 
-    public function getIdIngrediente(){
-        return $this->idIngrediente;
+    public function getIdProduto()
+    {
+        return $this->idProduto;
     }
 
-    public function setIdIngrediente(int $idIngrediente){
-        $this->idIngrediente = $idIngrediente;
+    public function setIdProduto(int $idProduto)
+    {
+        $this->idProduto = $idProduto;
     }
 
-    public function getQuantidade(){
+    public function getQuantidade()
+    {
         return $this->quantidade;
     }
 
-    public function setQuantidade(int $quantidade){
+    public function setQuantidade(int $quantidade)
+    {
         $this->quantidade = $quantidade;
     }
 
-    public function getValorTotal(){
+    public function getValorTotal()
+    {
         return $this->valorTotal;
     }
 
-    public function setValorTotal($quantidade, $valorProduto){
+    public function setValorTotal($quantidade, $valorProduto)
+    {
         $this->valorTotal = ($quantidade * $valorProduto);
     }
 
-    public function getStatus(){
+    public function getStatus()
+    {
         return $this->status;
     }
 
-    public function setStatus(string $status){
+    public function setStatus(string $status)
+    {
         $this->status = $status;
     }
 }

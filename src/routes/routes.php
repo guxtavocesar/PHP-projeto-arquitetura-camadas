@@ -2,13 +2,13 @@
 
 $routes = [
 
+    # Rota padrão
     '/' => 'MesaController@index',
 
-    '/login' => 'LoginController@index',
-    '/login/showFuncionario' => 'FuncionarioController@showFuncionario',
-    
-    # Rotas referentes ao funcionario
-    '/cadastro' => 'FuncionarioController@index',
+    '/login' => 'LoginController@indexLogin',
+    '/cadastro' => 'LoginController@indexCadastro',
+
+    '/funcionario/detalhes' => 'FuncionarioController@showFuncionario',
     
     # Rotas referentes à mesa
     '/mesa' => 'MesaController@index',
