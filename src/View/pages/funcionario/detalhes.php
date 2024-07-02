@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 
 require_once (ROOT.'/src/utils/ValidaAcesso.php');
@@ -6,6 +7,17 @@ require_once (ROOT.'/src/utils/ValidaAcesso.php');
 use Utils\ValidaAcesso;
 
 ValidaAcesso::validarAcesso();
+
+ // Validando chamada via POST para efetuar o LOGOUT do USUÁRO
+ if($_SERVER['REQUEST_METHOD'] == 'POST'){
+
+    if(isset($_POST['logout'])) {
+        
+        session_destroy();
+
+        header('location: ' .HOST);
+    }
+}
 
 ?>
 
